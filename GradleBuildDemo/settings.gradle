@@ -1,0 +1,22 @@
+rootProject.name = 'GradleBuildDemo'
+include 'CoreBuild', 'ExtBuild', 'TestBuild'
+
+/**
+ * Define a method to set the project build file.
+ * @param projectDescriptor
+ * @return
+ */
+def setGradleBuildFile(ProjectDescriptor projectDescriptor) {
+    // set build file name
+    projectDescriptor.buildFileName = "${projectDescriptor.name}.gradle"
+
+    // iterate each module of the project
+    projectDescriptor.children.each {
+        setGradleBuildFile(it)
+    }
+}
+
+// call setGradleBuildFile for each child module
+rootProject.children.each {
+    setGradleBuildFile(it)
+}
