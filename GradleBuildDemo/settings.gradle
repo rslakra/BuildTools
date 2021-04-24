@@ -1,5 +1,5 @@
 rootProject.name = 'GradleBuildDemo'
-include 'CoreBuild', 'ExtBuild', 'TestBuild'
+include 'CoreService', 'ExtService', 'TestService'
 
 /**
  * Define a method to set the project build file.
@@ -20,3 +20,5 @@ def setGradleBuildFile(ProjectDescriptor projectDescriptor) {
 rootProject.children.each {
     setGradleBuildFile(it)
 }
+include 'CommonService'
+
