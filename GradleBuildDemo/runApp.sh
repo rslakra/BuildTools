@@ -1,5 +1,6 @@
 #!/bin/bash
 echo
-./gradlew build run
+#./gradlew clean build run
+./gradlew clean build publishToMavenLocal
 echo
 

@@ -1,9 +1,19 @@
 plugins {
     id 'java'
+    id "nebula.release" version "15.3.1"
+    id "nebula.maven-publish" version "17.3.2"
+    id "nebula.javadoc-jar" version "17.3.2"
+    id "nebula.source-jar" version "17.3.2"
 }
 
 group 'com.devamatre.buildtools'
 version '1.0-SNAPSHOT'
+
+//allprojects {
+//    apply plugin: "nebula.release"
+//    group 'com.devamatre.buildtools'
+//    version = "1.0-SNAPSHOT"
+//}
 
 repositories {
     mavenCentral()
@@ -11,6 +21,9 @@ repositories {
 }
 
 dependencies {
+    implementation "com.netflix.nebula:nebula-publishing-plugin:7.1.0"
+    implementation "com.netflix.nebula:nebula-release-plugin:6.3.3"
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
