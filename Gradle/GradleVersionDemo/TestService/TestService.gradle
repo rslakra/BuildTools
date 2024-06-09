@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+//group 'com.devamatre.buildtools'
+//version '1.0-SNAPSHOT'
+//
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":CoreService")
+    implementation project(":ExtService")
+    testImplementation project(":CoreService")
+    testImplementation project(":ExtService")
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+    }
+}
+
+application {
+    mainClass = 'com.devamatre.buildtools.testservice.TestServiceApp'
+}
